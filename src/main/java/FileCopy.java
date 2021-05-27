@@ -1,13 +1,15 @@
 import org.apache.camel.CamelContext;
 import org.apache.camel.impl.DefaultCamelContext;
-import routeBuilders.HelloWorldRouteBuilder;
+import routeBuilders.FileCopyRouteBuilder;
 
-public class HelloWorld {
-
-
+public class FileCopy {
     public static void main(String[] args) throws Exception {
         CamelContext camelContext=new DefaultCamelContext();
-        camelContext.addRoutes(new HelloWorldRouteBuilder());
-        camelContext.start();
+
+        camelContext.addRoutes(new FileCopyRouteBuilder());
+
+        while (true){
+            camelContext.start();
+        }
     }
 }
